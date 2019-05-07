@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list-header>
+        <ion-label>
+          <h1>Clubs favoritos</h1>
+        </ion-label>
+      </ion-list-header>
+      <ion-list>
+       <ion-item *ngFor="let evento of favoritos">
+          <ion-avatar slot="start">
+              <img [src]= "'../../assets/image/' + evento +'.jpeg'"/>
+          </ion-avatar>
+          <ion-label>
+            <h2> {{evento}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+</ion-content>
