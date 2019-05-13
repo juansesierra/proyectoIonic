@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
+
 
 @Component({
   selector: 'app-inicio',
@@ -13,8 +15,20 @@ export class InicioPage implements OnInit {
   eventos = [];
 
 
-  constructor() {
-   }
+  constructor(private router: Router) {
+
+  }
+
+  goTo(evento) {
+    const navigationExtras : NavigationExtras = {
+      state: {
+        evento : evento
+      }
+    };
+    
+    console.log(evento);
+     this.router.navigate(['detalle-evento'], navigationExtras);
+  }
 
   ngOnInit() {
     for (let index = 0; index < this.imagenes.length; index++) {

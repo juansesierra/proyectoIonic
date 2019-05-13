@@ -15,6 +15,15 @@ const routes: Routes = [
             loadChildren: '../inicio/inicio.module#InicioPageModule'
           }
         ]
+      },
+      {
+        path: 'detalle-evento',
+        children: [
+          {
+            path: '',
+            loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule'
+          }
+        ]
       }, 
       {
         path: 'favoritos',

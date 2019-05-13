@@ -12,7 +12,7 @@
       </ion-list-header>
       <ion-list>
        <ion-item *ngFor="let evento of eventos" style="height:220px">
-          <ion-grid> 
+          <ion-grid (click)="goTo(evento.club)">
             <ion-row>
                 <ion-label>
                   <h2 style="font-weight: bold"> {{evento.club}}</h2>
