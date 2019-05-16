@@ -21,7 +21,7 @@
         
       <ion-list class="contenido">
           <ion-list-header>
-              <ion-label>
+              <ion-label class="titulo">
                 <h2>Line up</h2>
               </ion-label>
           </ion-list-header>
@@ -44,14 +44,24 @@
           </ion-label>
         </ion-row>
 
-        <ion-row class="contenido" style="margin-top: 10px;">
+        <ion-row class="contenido top10">
             <ion-label class="titulo">
               <h2>Política</h2>
             </ion-label>
-            <ion-label style="font-weight: bold">
+            <ion-label class="negrita">
               {{datos.politica}} . vestimenta {{datos.vestimenta}}
             </ion-label>
         </ion-row>
+
+        <ion-row class="contenido top10">
+          <ion-label class="titulo">
+              <h2>Opinión</h2>
+          </ion-label>
+          <ion-label  class="negrita">
+              Ver comentarios
+          </ion-label>
+        </ion-row>
+        
         <ion-row id="btn_apuntar_container">
           <ion-button id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
             Apúntate en lista

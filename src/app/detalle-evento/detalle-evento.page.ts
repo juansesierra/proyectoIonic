@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetalleEventoPage implements OnInit {
   evento : string;
+
   datos = {
     foto: 'Marmarela',
     fecha: 'Viernes 10 de Mayo',
