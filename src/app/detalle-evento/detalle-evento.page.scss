@@ -8,12 +8,59 @@ ion-img{
 
 ion-list {
     width: 100%;
+    margin-bottom: 15px;
 }
 
-#contenido {
+ion-list-header {
+    padding:0;
+}
+
+ion-grid {
+    margin-bottom: 60px;
+}
+
+.contenido {
     padding: 0 10px;
+}
+
+.titulo {
+    width: 100%;
+    margin: 5px 0;
+    color:grey;
+}
+
+.contenido h4 {
+    margin:0;
+}
+
+.centro_horizontal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.contenido h6 {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+#club {
+    color : #0cd1e8;
 }
 
 h1 {
     font-weight: bold;
+}
+
+#btn_apuntar_container{
+    background-color: white;
+    position: fixed;
+    bottom: 0%;
+    width: 98%;
+    padding: 12px 0;
+}
+
+#btn_apuntar {
+    width: 90%;
+    margin: 0 auto;
 }

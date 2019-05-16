@@ -17,15 +17,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'detalle-evento',
-        children: [
-          {
-            path: '',
-            loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule'
-          }
-        ]
-      }, 
-      {
         path: 'favoritos',
         children: [
           {

@@ -14,7 +14,10 @@ export class DetalleEventoPage implements OnInit {
     evento: 'THE SHOW EGIPTO',
     horario: '23:59 - 7:30',
     club: 'Marmarela',
-    artistas : ['Steve Aoki', 'Afrojack', 'David Guetta']
+    artistas : ['Steve Aoki', 'Afrojack', 'David Guetta'],
+    descripcion: 'Esta semana contaremos con una sala más grande ya que realizaremos la apertura de nuestro espacio Main Terrace. ',
+    politica: '+20',
+    vestimenta: 'arreglada'
   };
 
   constructor(public route: ActivatedRoute, private router: Router) {
