@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -21,17 +21,20 @@ export class RegisterPage implements OnInit {
     console.log(this.registerForm.value);
   }
 
+  private matchingPassword(password : string, passwordConfirmation : string){
+
+  }
+
   private createRegisterForm(){
     return this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      dateBirth: ['', Validators.required],
+      name: new FormControl ('', Validators.required),
+      lastName: new FormControl ('', Validators.required),
+      email: new FormControl ('', Validators.compose([Validators.required, Validators.email])),
+      dateBirth: new FormControl ('', Validators.required),
       passwordRetry: this.fb.group({
-        password: ['', Validators.required],
-        passwordConfirmation: ['', Validators.required]
-      })
-    });
+        password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
+        passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)]))
+      }, {validator: this.matchingPassword('password', 'passwordConfirmation')})});
   }
 
 }

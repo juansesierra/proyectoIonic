@@ -5,23 +5,27 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" class="list-form" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-        <ion-label stacked> Correo electrónico:</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Introduzca email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="eye" item-start></ion-icon>
-        <ion-label stacked> Contraseña:</ion-label>
-        <ion-input formControlName="password" type="password" placeholder="Introduzca contraseña"></ion-input>
-      </ion-item>
-    </ion-list>
-    <div padding>
-      <button ion-button block type="submit">Entrar</button>
+  <ion-grid>
+    <form [formGroup]="loginForm" class="list-form" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-icon name="mail" item-start></ion-icon>
+          <ion-label stacked> Correo electrónico:</ion-label>
+          <ion-input formControlName="email" type="email" placeholder="Introduzca email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked> Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Introduzca contraseña"></ion-input>
+        </ion-item>
+      </ion-list>
       <br><br>
-      <a href="register">Ir a registro</a>
-    </div>
-  </form>
+      <div text-center>
+          <button class="login-button" shape="round">Iniciar sesión</button>
+        </div>
+        <div padding>
+          <a href="register" class="href-register">Ir a registro</a>
+        </div>
+    </form>
+  </ion-grid>
 </ion-content>
