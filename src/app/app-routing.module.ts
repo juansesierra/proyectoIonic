@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
   { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
   { path: 'detalle-evento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
-  { path: 'detalle-evento/:id', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
+  { path: 'detalle-evento/:idEvento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
   { path: 'comentarios', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' }
 
 

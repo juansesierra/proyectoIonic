@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -8,32 +7,27 @@ import { ConsoleReporter } from 'jasmine';
   styleUrls: ['./detalle-evento.page.scss'],
 })
 export class DetalleEventoPage implements OnInit {
-  evento : string;
+  evento: string;
 
-  datos = {
-    foto: 'Marmarela',
-    fecha: 'Viernes 10 de Mayo',
-    evento: 'THE SHOW EGIPTO',
-    horario: '23:59 - 7:30',
-    club: 'Marmarela',
-    artistas : ['Steve Aoki', 'Afrojack', 'David Guetta'],
-    descripcion: 'Esta semana contaremos con una sala más grande ya que realizaremos la apertura de nuestro espacio Main Terrace. ',
-    politica: '+20',
-    vestimenta: 'arreglada'
-  };
+  datos;
 
   constructor(public route: ActivatedRoute, private router: Router) {
-    console.log("wwww");
-    
-    this.route.queryParams.subscribe(params => { 
+    this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.evento = this.router.getCurrentNavigation().extras.state.evento;
       }
     });
-    
-    console.log(this.route.snapshot.paramMap);
+    const eventos = JSON.parse(localStorage.getItem('eventos'));
+    if (eventos) {
+      this.datos = eventos.find((element) => element['club'] === this.evento);
+
+    }else {
+      this.datos = [];
+    }
+    // console.log(this.route.snapshot.paramMap);
+
   }
-  
+
   ngOnInit() {
   }
 

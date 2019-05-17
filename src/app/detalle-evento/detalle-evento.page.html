@@ -8,7 +8,7 @@
   </ion-header>
   
   <ion-content>
-    <ion-grid>
+    <ion-grid *ngIf="evento.length>0" >
       <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
         <ion-img [src]= "'../../assets/image/' + datos.foto +'.jpeg'"></ion-img>
       </ion-row>
