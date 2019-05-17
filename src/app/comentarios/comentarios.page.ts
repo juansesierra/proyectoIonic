@@ -9,24 +9,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ComentariosPage implements OnInit {
   evento: string;
   
-  comentarios = [
-    {
-      usuario: 'Juan',
-      comentario: 'Después de estar esperando todo el año, por fin se abre la terraza!'
-    },
-    {
-      usuario: 'Dani',
-      comentario: 'Se nota que ya se esta acercando la temporada de verano, ansioso por ir!'
-    },
-    {
-      usuario: 'Juanse',
-      comentario: 'Que ganas de ir!, ya estoy apuntado en lista y contando los días para celebrar'
-    }
-  ];
+  comentarios;
 
   constructor(public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+     // Comprobamos si viene por url o desde el boton atras
+     if (!this.evento && this.route.snapshot.paramMap.get('idEvento')) {
+      this.evento = this.route.snapshot.paramMap.get('idEvento');
+    }
+
+    // Obtenemos los datos del evento
+    if (this.evento) {
+      const eventos = JSON.parse(localStorage.getItem('eventos'));
+      if (eventos) {
+        this.comentarios = eventos.find((element) => element['club'] === this.evento).comentarios; 
+      }
+
+      console.log(this.comentarios);
+    }
     this.evento = this.route.snapshot.paramMap.get('idEvento');
   }
 

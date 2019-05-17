@@ -30,6 +30,8 @@ export class DetalleEventoPage implements OnInit {
       if (eventos) {
         this.datos = eventos.find((element) => element['club'] === this.evento); 
       }
+
+      console.log(this.datos);
     }
 
   }

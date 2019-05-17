@@ -46,7 +46,8 @@ export class InicioPage implements OnInit {
       artistas : ['Nicky Jam', 'Anuel'],
       descripcion: 'Esta semana tendremos en Club Concerto dos de los artistas más importantes del género urbano',
       politica: '+18',
-      vestimenta: 'casual'
+      vestimenta: 'casual',
+      comentarios: []
     },
     {
       foto: 'Magma Club',
@@ -56,9 +57,10 @@ export class InicioPage implements OnInit {
       club: 'Magma Club',
       artistas : ['Daddy Yankee', 'Don Omar', 'Tego Calderon'],
       descripcion: 'Esta semana daremos un viaje por el pasado junto a tres de los artistas que ' +
-      'impulsaron el género urbano, ¿te lo vas a perder?',
+      'impulsaron el género urbano. ¿Te lo vas a perder?',
       politica: '+18',
-      vestimenta: 'casual'
+      vestimenta: 'casual',
+      comentarios: []
     },
     {
       foto: 'Marearock Bar',
@@ -69,7 +71,8 @@ export class InicioPage implements OnInit {
       artistas : ['Bon Jovi', 'U2'],
       descripcion: 'Esta semana en Marea Rock no te puedes perder nuestra fiesta de Rock',
       politica: '+21',
-      vestimenta: 'casual'
+      vestimenta: 'casual',
+      comentarios: []
     },
     {
       foto: 'Havana Castaños',
@@ -81,7 +84,8 @@ export class InicioPage implements OnInit {
       descripcion: 'Como todos los Sábados, no te puedes perder tu cita en el mejor tardeo de la ciudad. Además contaremos con '+
       'la animación de artistas de fama internacinal!',
       politica: '+21',
-      vestimenta: 'arreglada'
+      vestimenta: 'arreglada',
+      comentarios: []
     }
   ];
 
