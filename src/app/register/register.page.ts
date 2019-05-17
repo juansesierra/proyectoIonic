@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ export class RegisterPage implements OnInit {
 
   registerForm : FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.registerForm = this.createRegisterForm();
    }
 
@@ -18,11 +19,22 @@ export class RegisterPage implements OnInit {
   }
 
   public onSubmit(){
-    console.log(this.registerForm.value);
+    var registro = this.registerForm.value;
+    localStorage.setItem('usuario',  JSON.stringify(registro));
+    this.router.navigateByUrl('/login');
   }
 
-  private matchingPassword(password : string, passwordConfirmation : string){
+  private matchingPassword(passwordKey: string, confirmPasswordKey: string){
+    return(group: FormGroup): {[key: string]: any} => {
+      let password = group.controls[passwordKey];
+      let confirmPassword = group.controls[confirmPasswordKey];
 
+      if(password.value !== confirmPassword.value){
+        return {
+          mismatchedPasswords: true
+        }
+      }
+    }
   }
 
   private createRegisterForm(){
@@ -31,10 +43,9 @@ export class RegisterPage implements OnInit {
       lastName: new FormControl ('', Validators.required),
       email: new FormControl ('', Validators.compose([Validators.required, Validators.email])),
       dateBirth: new FormControl ('', Validators.required),
-      passwordRetry: this.fb.group({
-        password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
-        passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)]))
-      }, {validator: this.matchingPassword('password', 'passwordConfirmation')})});
+      password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)]))
+      }, {validator: this.matchingPassword('password', 'passwordConfirmation')});
   }
 
 }

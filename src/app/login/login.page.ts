@@ -18,7 +18,12 @@ export class LoginPage implements OnInit {
   }
 
   public onSubmit(){
-    console.log(this.loginForm.value);
+    var login = this.loginForm.value;
+    var datos = JSON.parse(localStorage.getItem('usuario'));
+
+    if((login['email'] == datos['email']) && (login['password'] == datos['password'])){
+      console.log('OK');
+    }
   }
 
   private createLoginForm(){

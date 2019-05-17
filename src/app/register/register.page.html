@@ -53,28 +53,30 @@
             <p class="error">Selecciona fecha de nacimiento</p>
         </ion-item>
 
-        <div formGroupName="passwordRetry">
-            <ion-item>
-              <ion-icon name="eye" item-start></ion-icon>
-              <ion-label stacked>Contraseña:</ion-label>
-              <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
-            </ion-item>
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
 
-            <ion-item *ngIf="registerForm.get('passwordRetry').get('password').errors && registerForm.get('passwordRetry').get('password').dirty">
-                <p *ngIf="registerForm.get('passwordRetry').get('password').hasError('required')" class="error">
-                  La contraseña es requerida
-                </p>
-                <p *ngIf="registerForm.get('passwordRetry').get('password').hasError('minlength')" class="error">
-                  Minimo 8 carácteres
-                </p>
-            </ion-item>
+        <ion-item *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
+            <p *ngIf="registerForm.get('password').hasError('required')" class="error">
+              La contraseña es requerida
+            </p>
+            <p *ngIf="registerForm.get('password').hasError('minlength')" class="error">
+              Minimo 8 carácteres
+            </p>
+        </ion-item>
 
-            <ion-item>
-              <ion-icon name="eye" item-start></ion-icon>
-              <ion-label stacked>Confirmar contraseña:</ion-label>
-              <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar contraseña"></ion-input>
-            </ion-item>
-          </div>
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Confirmar contraseña:</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar contraseña"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="registerForm.hasError('mismatchedPasswords')">
+            <p class="error">Contraseñas distintas</p>
+        </ion-item>
       </ion-list>
       <br><br>
       <div text-center>
