@@ -85,6 +85,63 @@ export class InicioPage implements OnInit {
     }
   ];
 
+  clubs = [
+    {
+      foto: 'Marmarela',
+      localizacion: 'Alicante',
+      likes: '50k',
+      descripcion: 'Marmarela es un espacio multidisciplinar donde Restauración, Cocktails, Copas y una cuidada programación musical son sus grandes atractivos. Tenemos conciertos y actuaciones de djs en un marco incomparable, así como acciones escenográficas de todo tipo. Marmarela ofrece un contenido diferente para cada día y para todos los gustos, contando siempre con artistas de primer nivel.',
+      generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Electronica'
+        },
+        {
+          tipo:'Dance'
+        }
+      ]
+    },
+    {
+      foto: 'Magma Club',
+      localizacion: 'Alicante',
+      likes: '40k',
+      descripcion: 'Contando con una programación inigualable y un ambiente excepcional, somos el lugar donde te haremos disfrutar como nunca. En un entorno privilegiado, podrás disfrutar de la mejor música sin que tengas ningún tipo de carencia. Servicio de cachimbas, restauración… todo al alcance de tu mano.',
+      generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Trap'
+        },
+        {
+          tipo:'Dance'
+        }
+      ]
+    },
+    {
+      foto: 'Marearock Bar',
+      localizacion: 'Alicante',
+      likes: '30k',
+      descripcion: 'Todo el Rock, Punk, Metal,.. Nacional e Internacional!! Mucha fiesta, buenos Djs y buenos precios!!!',
+      generosMusicales : [
+        {
+          tipo:'Rock'
+        },
+        {
+          tipo:'Punk'
+        },
+        {
+          tipo:'Metal'
+        },
+        {
+          tipo:'Ska'
+        }
+      ]
+    }
+  ];
+
   constructor(private router: Router) {
 
   }
