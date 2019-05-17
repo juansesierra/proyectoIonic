@@ -13,8 +13,8 @@ export class InicioPage implements OnInit {
 
   datosIniciales = [
     {
-      foto: 'Marmarela',
-      fecha: 'Viernes 10 de Mayo',
+      foto: 'poolMarmarela',
+      fecha: 'Sábado 11 de Mayo',
       evento: 'THE SHOW EGIPTO',
       horario: '23:59 - 7:30',
       club: 'Marmarela',
@@ -38,9 +38,9 @@ export class InicioPage implements OnInit {
       ]
     },
     {
-      foto: 'Club Concerto',
+      foto: 'fiestaConcerto',
       fecha: 'Viernes 10 de Mayo',
-      evento: 'Urban Night',
+      evento: 'Fiesta del semáforo',
       horario: '2:30 - 7:30',
       club: 'Club Concerto',
       artistas : ['Nicky Jam', 'Anuel'],
@@ -50,7 +50,7 @@ export class InicioPage implements OnInit {
       comentarios: []
     },
     {
-      foto: 'Magma Club',
+      foto: 'fiestaMagma',
       fecha: 'Viernes 10 de Mayo',
       evento: 'Capsula del tiempo',
       horario: '23:59 - 7:30',
@@ -63,19 +63,7 @@ export class InicioPage implements OnInit {
       comentarios: []
     },
     {
-      foto: 'Marearock Bar',
-      fecha: 'Sábado 11 de Mayo',
-      evento: 'Fiesta Rock And Roll',
-      horario: '21:59 - 4:30',
-      club: 'Marearock Bar',
-      artistas : ['Bon Jovi', 'U2'],
-      descripcion: 'Esta semana en Marea Rock no te puedes perder nuestra fiesta de Rock',
-      politica: '+21',
-      vestimenta: 'casual',
-      comentarios: []
-    },
-    {
-      foto: 'Havana Castaños',
+      foto: 'fiestaHavana',
       fecha: 'Sábado 11 de Mayo',
       evento: 'Tardeo del Sábado',
       horario: '16:00 - 2:30',
@@ -85,6 +73,18 @@ export class InicioPage implements OnInit {
       'la animación de artistas de fama internacinal!',
       politica: '+21',
       vestimenta: 'arreglada',
+      comentarios: []
+    },
+    {
+      foto: 'Marearock Bar',
+      fecha: 'Sábado 11 de Mayo',
+      evento: 'Fiesta Rock And Roll',
+      horario: '21:59 - 4:30',
+      club: 'Marearock Bar',
+      artistas : ['Bon Jovi', 'U2'],
+      descripcion: 'Esta semana en Marea Rock no te puedes perder nuestra fiesta de Rock',
+      politica: '+21',
+      vestimenta: 'casual',
       comentarios: []
     }
   ];
