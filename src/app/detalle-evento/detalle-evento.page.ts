@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -22,13 +23,17 @@ export class DetalleEventoPage implements OnInit {
   };
 
   constructor(public route: ActivatedRoute, private router: Router) {
+    console.log("wwww");
+    
     this.route.queryParams.subscribe(params => { 
       if (this.router.getCurrentNavigation().extras.state) {
         this.evento = this.router.getCurrentNavigation().extras.state.evento;
       }
     });
-   }
-
+    
+    console.log(this.route.snapshot.paramMap);
+  }
+  
   ngOnInit() {
   }
 

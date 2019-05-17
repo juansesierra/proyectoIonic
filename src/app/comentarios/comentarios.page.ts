@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comentarios.page.scss'],
 })
 export class ComentariosPage implements OnInit {
-
+  evento: string;
+  
   comentarios = [
     {
       usuario: 'Juan',

@@ -1,5 +1,8 @@
 <ion-header>
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/inicio"></ion-back-button>
+      </ion-buttons>
       <ion-title>Detalle Evento</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -57,13 +60,13 @@
           <ion-label class="titulo">
               <h2>Opinión</h2>
           </ion-label>
-          <ion-label  class="negrita">
-              Ver comentarios
+          <ion-label class="negrita">
+              <a href="/comentarios"> Ver comentarios </a>
           </ion-label>
         </ion-row>
         
         <ion-row id="btn_apuntar_container">
-          <ion-button id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
+          <ion-button href="/comentarios" id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
             Apúntate en lista
           </ion-button>
         </ion-row>
