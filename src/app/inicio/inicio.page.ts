@@ -102,10 +102,10 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem('eventos')) {
+    if (!localStorage.getItem('eventos')) {
       localStorage.setItem('eventos',  JSON.stringify(this.datosIniciales));
       this.eventos = this.datosIniciales;
-
+      
     } else {
       this.eventos = JSON.parse( localStorage.getItem('eventos') );
     }

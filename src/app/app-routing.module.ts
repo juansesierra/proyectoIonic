@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
   { path: 'detalle-evento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
   { path: 'detalle-evento/:idEvento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
-  { path: 'comentarios', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' }
+  { path: 'comentarios/:idEvento', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' }
 
 
 

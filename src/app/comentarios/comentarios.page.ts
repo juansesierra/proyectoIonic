@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comentarios',
@@ -23,9 +24,10 @@ export class ComentariosPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.evento = this.route.snapshot.paramMap.get('idEvento');
   }
 
 }

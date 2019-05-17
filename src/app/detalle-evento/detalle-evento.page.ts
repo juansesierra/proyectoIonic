@@ -12,19 +12,25 @@ export class DetalleEventoPage implements OnInit {
   datos;
 
   constructor(public route: ActivatedRoute, private router: Router) {
+    // Comprobamos si viene de inicio
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.evento = this.router.getCurrentNavigation().extras.state.evento;
       }
     });
-    const eventos = JSON.parse(localStorage.getItem('eventos'));
-    if (eventos) {
-      this.datos = eventos.find((element) => element['club'] === this.evento);
 
-    }else {
-      this.datos = [];
+    // Comprobamos si viene por url o desde el boton atras
+    if (!this.evento && this.route.snapshot.paramMap.get('idEvento')) {
+      this.evento = this.route.snapshot.paramMap.get('idEvento');
     }
-    // console.log(this.route.snapshot.paramMap);
+
+    // Obtenemos los datos del evento
+    if (this.evento) {
+      const eventos = JSON.parse(localStorage.getItem('eventos'));
+      if (eventos) {
+        this.datos = eventos.find((element) => element['club'] === this.evento); 
+      }
+    }
 
   }
 
