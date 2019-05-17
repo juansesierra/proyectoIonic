@@ -15,7 +15,7 @@ const routes: Routes = [
             loadChildren: '../inicio/inicio.module#InicioPageModule'
           }
         ]
-      }, 
+      },
       {
         path: 'favoritos',
         children: [

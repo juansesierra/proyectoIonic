@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/inicio"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detalle Evento</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid *ngIf="evento.length>0" >
+      <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
+        <ion-img [src]= "'../../assets/image/' + datos.foto +'.jpeg'"></ion-img>
+      </ion-row>
+      <ion-row class="contenido">
+        <h1>{{datos.evento}}. {{datos.fecha}}</h1>
+      </ion-row>  
+      <ion-row class="contenido">
+        <h4 id="club">{{datos.club}}</h4>
+      </ion-row>
+      <ion-row class="contenido">
+        <h6>{{datos.fecha}} {{datos.horario}}</h6>
+      </ion-row>
+        
+      <ion-list class="contenido">
+          <ion-list-header>
+              <ion-label class="titulo">
+                <h2>Line up</h2>
+              </ion-label>
+          </ion-list-header>
+          <ion-item *ngFor="let artista of datos.artistas">
+              <ion-avatar slot="start">
+                  <img [src]= "'../../assets/image/artistas/' + artista +'.jpg'"/>
+              </ion-avatar>
+              <ion-label>
+                <h2> {{artista}}</h2>
+              </ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-row class="contenido">
+          <ion-label class="titulo">
+            <h2>Descripcion</h2>
+          </ion-label>
+          <ion-label>
+            {{datos.descripcion}}
+          </ion-label>
+        </ion-row>
+
+        <ion-row class="contenido top10">
+            <ion-label class="titulo">
+              <h2>Política</h2>
+            </ion-label>
+            <ion-label class="negrita">
+              {{datos.politica}} . vestimenta {{datos.vestimenta}}
+            </ion-label>
+        </ion-row>
+
+        <ion-row class="contenido top10">
+          <ion-label class="titulo">
+              <h2>Opinión</h2>
+          </ion-label>
+          <ion-label class="negrita">
+              <a href="/comentarios"> Ver comentarios </a>
+          </ion-label>
+        </ion-row>
+        
+        <ion-row id="btn_apuntar_container">
+          <ion-button href="/comentarios" id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
+            Apúntate en lista
+          </ion-button>
+        </ion-row>
+      
+    </ion-grid>
+  </ion-content>
+  

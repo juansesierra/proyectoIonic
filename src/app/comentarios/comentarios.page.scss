@@ -1,0 +1,18 @@
+ion-label {
+    white-space: initial !important; 
+}
+
+#nuevo_comentario {
+    margin-top: 40px;
+}
+
+#btn_comentar {
+    width: 50%;
+    left: 45%;
+    position: relative;
+    margin-top: 15px;
+}
+
+:host{
+    --highlight-color-focused: var(--ion-color-secondary,#3880ff);
+}

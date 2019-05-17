@@ -1,0 +1,11 @@
+ion-img{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    height: initial;
+}
+
+ion-item ion-row:first-child, ion-item ion-row:nth-child(2) {
+    margin-bottom: 5px;
+}
