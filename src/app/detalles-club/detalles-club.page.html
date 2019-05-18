@@ -29,19 +29,15 @@
     <ion-label class="titulo">
       <h2>Próximo evento</h2>
     </ion-label>
-    <ion-item *ngFor="let evento of this.events">
-      <ion-item *ngIf="evento.club == info.club">
-        <div>
-          <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
-            <ion-img [src]= "'../../assets/image/' + evento.foto +'.jpeg'"></ion-img>
-          </ion-row>
-          <h4 id="texto">{{evento.evento}}</h4><br/>
-          <h4 id="texto">{{evento.fecha}}</h4><br/>
-          <h4 id="texto">{{evento.horario}}</h4><br/>
-          <h4 id="texto">{{evento.vestimenta}}</h4>
-        </div>
-      </ion-item>
-    </ion-item>
+      <div>
+        <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
+          <ion-img [src]= "'../../assets/image/' + events.foto +'.jpeg'"></ion-img>
+        </ion-row>
+        <h4 id="texto">{{events.evento}}</h4><br/>
+        <h4 id="texto">{{events.fecha}}</h4><br/>
+        <h4 id="texto">{{events.horario}}</h4><br/>
+        <h4 id="texto">{{events.vestimenta}}</h4>
+      </div>
 
     <ion-row class="contenido top10">
       <ion-label class="titulo">

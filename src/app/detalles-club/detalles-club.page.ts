@@ -20,10 +20,11 @@ export class DetallesClubPage implements OnInit {
     });
     const clubs = JSON.parse(localStorage.getItem('clubs'));
     const eventos = JSON.parse(localStorage.getItem('eventos'));
-    this.events = eventos;
+    
     
     if (clubs) {
       this.info = clubs.find((element) => element['club'] === this.club);
+      this.events = eventos.find((element) => element['club'] === this.club);
     }
 
     console.log(this.info);
