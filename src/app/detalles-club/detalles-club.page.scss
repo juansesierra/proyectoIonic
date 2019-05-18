@@ -24,6 +24,10 @@ ion-grid {
     margin-bottom: 60px;
 }
 
+.boton {
+    background-color: transparent;
+}
+
 .contenido {
     padding: 0 10px;
 }
@@ -89,4 +93,8 @@ a {
 #btn_apuntar {
     width: 90%;
     margin: 0 auto;
+}
+
+ion-icon {
+    font-size: 50px; //Preferred size here
 }

@@ -8,8 +8,12 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class FavoritosPage implements OnInit {
 
-  readonly favoritos:string [] = ['Marmarela','Magma Club','Marearock Bar']
-  constructor(private router: Router) { }
+  favoritos:string [] = []
+  constructor(private router: Router) { 
+    const favs = JSON.parse(localStorage.getItem('favoritos'));
+    this.favoritos = favs;
+    console.log(this.favoritos);
+  }
 
   goToClub(club) {
     const navigationExtras: NavigationExtras = {

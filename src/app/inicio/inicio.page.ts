@@ -1,3 +1,4 @@
+import { FavoritosPageModule } from './../favoritos/favoritos.module';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
@@ -11,6 +12,7 @@ export class InicioPage implements OnInit {
 
   eventos = [];
   clubs = [];
+  favs = [];
 
   datosIniciales = [
     {
@@ -178,7 +180,7 @@ export class InicioPage implements OnInit {
       ]
     }
   ];
-
+  favoritos = ['Marmarela', 'Magma Club', 'Marearock Bar']
 
   constructor(private router: Router) {
 
@@ -222,6 +224,14 @@ export class InicioPage implements OnInit {
       
     } else {
       this.clubs = JSON.parse( localStorage.getItem('clubs') );
+    }
+
+    if (!localStorage.getItem('favoritos')) {
+      localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
+      this.favs = this.favoritos;
+      
+    } else {
+      this.favs = JSON.parse( localStorage.getItem('favoritos') );
     }
 
     /*
