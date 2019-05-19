@@ -26,6 +26,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'perfil',
+        children: [
+          {
+            path: '',
+            loadChildren: '../perfil/perfil.module#PerfilPageModule'
+          }
+        ]
+      },
+      {
         path: 'tab2',
         children: [
           {
