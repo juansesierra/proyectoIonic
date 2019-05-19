@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/entradas']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Método de pago</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-grid>
+    <ion-list>
+      <ion-item [routerLink]="['/compra']">
+        <ion-label>
+          <ion-avatar>
+              <img [src]= "'../../assets/image/paypal.png'"/>
+          </ion-avatar>
+        </ion-label>
+        PayPal
+      </ion-item>
+      <ion-item [routerLink]="['/tarjeta-credito']">
+        <ion-label>
+          <ion-thumbnail>
+              <img [src]= "'../../assets/image/tarjeta.png'"/>
+          </ion-thumbnail>
+        </ion-label>
+        Tarjeta de crédito, Visa, Mastercard
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>

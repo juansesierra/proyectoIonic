@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToClub(evento.club)"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Entradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <form [formGroup]="entradas_form" class="list-form" (ngSubmit)="onSubmit()">
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Tipo de entrada</ion-label>
+          <ion-select formControlName="tipo" placeholder="Selecciona una" okText="Hecho" cancelText="Cancelar" required>
+            <ion-select-option value="10">General 10€</ion-select-option>
+            <ion-select-option value="17">VIP 17€</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cantidad de entradas</ion-label>
+          <ion-select formControlName="cantidad" okText="Hecho" cancelText="Cancelar" required>
+            <ion-select-option value="1">1</ion-select-option>
+            <ion-select-option value="2">2</ion-select-option>
+            <ion-select-option value="3">3</ion-select-option>
+            <ion-select-option value="4">4</ion-select-option>
+            <ion-select-option value="5">5</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <br><br>
+      <ion-button class="metodo-pago-btn" color="secondary" expand="block" shape="round" type="submit" [disabled]="!entradas_form.valid" [routerLink]="['/metodo-pago']">Confirmar</ion-button>
+    </form>
+  </ion-grid>
+</ion-content>
