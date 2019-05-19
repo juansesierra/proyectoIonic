@@ -31,4 +31,10 @@ export class ComentariosPage implements OnInit {
     this.evento = this.route.snapshot.paramMap.get('idEvento');
   }
 
+  addComentario() {
+    const eventos = JSON.parse(localStorage.getItem('eventos'));
+    this.comentarios.push('kdkdkdkd');
+
+  }
+
 }
