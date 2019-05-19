@@ -5,19 +5,28 @@
 </ion-header>
 
 <ion-content>
-    <ion-list-header>
+    <ion-list-header style="margin-top: 10px;">
         <ion-label>
-          <h1>Eventos</h1>
+          <h1 >Eventos</h1>
         </ion-label>
       </ion-list-header>
       <ion-list>
-       <ion-item *ngFor="let evento of eventos">
-          <ion-avatar slot="start">
-              <img [src]= "'../../assets/image/' + evento +'.jpeg'"/>
-          </ion-avatar>
-          <ion-label>
-            <h2> {{evento}}</h2>
-          </ion-label>
+       <ion-item *ngFor="let evento of eventos" style="height:220px">
+          <ion-grid >
+            <ion-row>
+                <ion-label>
+                  <h2 style="font-weight: bold" (click)="goToClub(evento.club)"> {{evento.club}}</h2>
+                </ion-label>
+            </ion-row>
+              <ion-row (click)="goTo(evento.club)" style = "width:100%; height:150px; overflow: hidden; position: relative">
+                <ion-img [src]= "'../../assets/image/' + evento.foto +'.jpeg'"></ion-img>
+              </ion-row>
+              <ion-row>
+                <ion-label>
+                  <h2> {{evento.fecha}}</h2>
+                </ion-label>
+              </ion-row>
+            </ion-grid>
         </ion-item>
       </ion-list>
 </ion-content>

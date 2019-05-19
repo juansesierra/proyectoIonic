@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-favoritos',
@@ -7,8 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritosPage implements OnInit {
 
-  readonly favoritos:string [] = ['Marmarela','Magma Club','Marearock Bar']
-  constructor() { }
+  favoritos:string [] = []
+  constructor(private router: Router) { 
+    const favs = JSON.parse(localStorage.getItem('favoritos'));
+    this.favoritos = favs;
+    console.log(this.favoritos);
+  }
+
+  goToClub(club) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        club : club
+      }
+    };
+
+    console.log(club);
+     this.router.navigate(['detalles-club'], navigationExtras);
+  }
+
+  
 
   ngOnInit() {
   }

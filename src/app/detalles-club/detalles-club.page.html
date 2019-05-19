@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle club</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="info" >
+    <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
+      <ion-img [src]= "'../../assets/image/' + info.foto +'.jpeg'"></ion-img>
+    </ion-row>
+    <div>
+      <span>
+        <ion-icon (click)="anyadir(info.club)"  style="color:red;" name="md-heart"></ion-icon>
+        {{info.likes}}
+      </span>
+      </div>
+    <ion-row class="contenido">
+      <ion-item *ngFor="let genero of info.generosMusicales">
+        
+          <h4 style="color:red;"> {{genero.tipo}}</h4>
+        
+      </ion-item>
+    </ion-row>
+    <ion-row class="contenido">
+      <h1>{{info.club}}</h1>
+    </ion-row>  
+    <ion-row class="contenido">
+      <h4>{{info.localizacion}}</h4>
+    </ion-row>
+
+    <ion-label class="titulo">
+      <h2>Próximo evento</h2>
+    </ion-label>
+      <div>
+        <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
+          <ion-img [src]= "'../../assets/image/' + events.foto +'.jpeg'"></ion-img>
+        </ion-row>
+        <h4 id="texto">{{events.evento}}</h4><br/>
+        <h4 id="texto">{{events.fecha}}</h4><br/>
+        <h4 id="texto">{{events.horario}}</h4><br/>
+        <h4 id="texto">{{events.vestimenta}}</h4>
+      </div>
+
+    <ion-row class="contenido top10">
+      <ion-label class="titulo">
+        <h2>Información</h2>
+      </ion-label>
+      <ion-label>
+        {{info.descripcion}}
+      </ion-label>
+    </ion-row>    
+  </ion-grid>
+</ion-content>
