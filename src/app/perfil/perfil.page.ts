@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  usuario: any;
 
+  constructor() { 
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.usuario = usuario;
+  }
+  
   ngOnInit() {
   }
 

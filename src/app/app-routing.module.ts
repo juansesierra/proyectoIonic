@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'comentarios/:idEvento', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' },
   { path: 'detalles-club', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
   { path: 'detalles-club/:idClub', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
-  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' }
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' }
 ];
 @NgModule({
   imports: [
