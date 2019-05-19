@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 export class EditarPerfilPage implements OnInit {
 
   editForm : FormGroup;
+  usuario: any;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.editForm = this.createeditForm();
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.usuario = usuario;
    }
 
   ngOnInit() {
@@ -21,6 +24,8 @@ export class EditarPerfilPage implements OnInit {
   public onSubmit(){
     var editar = this.editForm.value;
     localStorage.setItem('usuario',  JSON.stringify(editar));
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(usuario)
     this.router.navigateByUrl('/perfil');
   }
 

@@ -1,25 +1,28 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/inicio"></ion-back-button>
+        </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
     <ion-row style = "width:100%; height:220px; overflow: hidden; position: relative">
-        <ion-img [src]= "'../../assets/image/' + usuario.name +'.jpeg'"></ion-img>
+        <ion-img [src]= "'../../assets/image/usuarios/' + usuario.name +'.jpeg'"></ion-img>
     </ion-row>
-    <h2>Nombre</h2>
-    <h3>{{usuario.name}}</h3>
-    <h2>Apellidos</h2>
-    <h3>{{usuario.lastName}}</h3>
-    <h2>fehca de nacimiento</h2>
-    <h3>{{usuario.dateBirth}}</h3>
-    <h2>Email</h2>
-    <h3>{{usuario.email}}</h3>
-    <h2>Password</h2>
-    <h3>{{usuario.password}}</h3>
+    <ion-row class="contenido">
+    <h2>{{usuario.name}} </h2>
+    <h2>{{usuario.lastName}}</h2>
+    </ion-row>
+    <ion-row class="contenido">
+      <h3>{{usuario.dateBirth}}</h3>
+    </ion-row>
+    <ion-row class="contenido">
+      <h3>{{usuario.email}}</h3>
+    </ion-row>
 
     <ion-row id="btn_apuntar_container">
-        <ion-button href="/editar" id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
+        <ion-button href="/editar-perfil" id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
           Editar
         </ion-button>
       </ion-row>

@@ -11,7 +11,7 @@
         <ion-item>
           <ion-icon name="person" item-start></ion-icon>
           <ion-label stacked> Nombre:</ion-label>
-          <ion-input formControlName="name" type="text" placeholder="Introduzca nombre"></ion-input>
+          <ion-input formControlName="name" type="text" oldValue="usuario.name" placeholder="{{usuario.name}}"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="editForm.get('name').errors && editForm.get('name').dirty">
@@ -21,7 +21,7 @@
         <ion-item>
             <ion-icon name="person" item-start></ion-icon>
             <ion-label stacked> Apellidos:</ion-label>
-            <ion-input formControlName="lastName" type="text" placeholder="Introduzca apellidos"></ion-input>
+            <ion-input formControlName="lastName" type="text" oldValue="usuario.lastName" placeholder="{{usuario.lastName}}"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="editForm.get('lastName').errors && editForm.get('lastName').dirty">
@@ -31,7 +31,7 @@
         <ion-item>
           <ion-icon name="mail" item-start></ion-icon>
           <ion-label stacked> Correo electrónico:</ion-label>
-          <ion-input formControlName="email" type="email" placeholder="Introduzca email"></ion-input>
+          <ion-input formControlName="email" type="email" oldValue="usuario.email" placeholder="{{usuario.email}}"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="editForm.get('email').errors && editForm.get('email').dirty">
@@ -79,9 +79,9 @@
         </ion-item>
       </ion-list>
       <br><br>
-      <div text-center>
-        <button class="registro-button" shape="round" [disabled]="!editForm.valid">Guardar</button>
-      </div>
+      <ion-row id="btn_apuntar_container">
+        <ion-button [disabled]="!editForm.valid" id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">Guardar</ion-button>
+      </ion-row>
     </form>
   </ion-grid>
 </ion-content>

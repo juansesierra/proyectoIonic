@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'detalles-club', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
   { path: 'detalles-club/:idClub', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
-  { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' }
+  { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
 ];
 @NgModule({
   imports: [
