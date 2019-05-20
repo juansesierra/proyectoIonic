@@ -51,7 +51,6 @@ export class DetallesClubPage implements OnInit {
     localStorage.setItem('favoritos',  JSON.stringify(this.favs));
   }
 
-  
 
   ngOnInit() {
     const favoritos = JSON.parse(localStorage.getItem('favoritos'));

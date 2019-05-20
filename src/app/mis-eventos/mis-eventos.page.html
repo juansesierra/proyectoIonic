@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>misEventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    <ion-label>
+      <h1>Mis eventos</h1>
+    </ion-label>
+  </ion-list-header>
+  <ion-list>
+   <ion-item *ngFor="let evento of eventos">
+      <ion-avatar slot="start">
+          <img [src]= "'../../assets/image/' + evento.foto +'.jpeg'"/>
+      </ion-avatar>
+      <ion-label>
+        <h2 (click)="goToEvento(evento.club)"> {{evento.evento}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
