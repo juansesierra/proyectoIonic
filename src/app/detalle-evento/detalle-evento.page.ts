@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -11,7 +12,7 @@ export class DetalleEventoPage implements OnInit {
 
   datos;
 
-  constructor(public route: ActivatedRoute, private router: Router) {
+  constructor(public route: ActivatedRoute, private router: Router, private alertController: AlertController) {
     // Comprobamos si viene de inicio
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -34,6 +35,26 @@ export class DetalleEventoPage implements OnInit {
       console.log(this.datos);
     }
 
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Compartir',
+      message: 'Muchas gracias por el apoyo!',
+      buttons: ['Aceptar']
+    });
+
+    await alert.present();
+  }
+
+  goToClub(club) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        club : club
+      }
+    };
+
+     this.router.navigate(['detalles-club'], navigationExtras);
   }
 
   ngOnInit() {

@@ -143,9 +143,6 @@ export class InicioPage implements OnInit {
         },
         {
           tipo:'Metal'
-        },
-        {
-          tipo:'Ska'
         }
       ]
     },
@@ -165,7 +162,7 @@ export class InicioPage implements OnInit {
       ]
     },
     {
-      foto: 'Havanna Castaños',
+      foto: 'Havana Castaños',
       club: 'Havanna Castaños',
       localizacion: 'Alicante',
       likes: '30k',
@@ -209,39 +206,45 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
+  }
 
-    if (!localStorage.getItem('eventos')) {
-      localStorage.setItem('eventos',  JSON.stringify(this.datosIniciales));
-      this.eventos = this.datosIniciales;
+  ionViewWillEnter() {
+    if (localStorage.getItem('usuario')) {
+
+      if (!localStorage.getItem('favoritos')) {
+        localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
+        this.favs = this.favoritos;
+        
+      } else {
+        this.favs = JSON.parse( localStorage.getItem('favoritos') );
+      }
+
+      if (!localStorage.getItem('eventos')) {
+        localStorage.setItem('eventos',  JSON.stringify(this.datosIniciales));
+        this.eventos = this.datosIniciales;
+        
+      } else {
+        this.eventos = [];
+        const eventosAux = JSON.parse( localStorage.getItem('eventos') );
+
+        for (let club of this.favs) {
+          this.eventos.push(eventosAux.find((element) => element['club'] === club));
+        }
+      }
+
+      if (!localStorage.getItem('clubs')) {
+        localStorage.setItem('clubs',  JSON.stringify(this.datosInicialesClubs));
+        this.clubs = this.datosInicialesClubs;
+        
+      } else {
+        this.clubs = JSON.parse( localStorage.getItem('clubs') );
+      }
+
       
-    } else {
-      this.eventos = JSON.parse( localStorage.getItem('eventos') );
-    }
 
-    if (!localStorage.getItem('clubs')) {
-      localStorage.setItem('clubs',  JSON.stringify(this.datosInicialesClubs));
-      this.clubs = this.datosInicialesClubs;
-      
     } else {
-      this.clubs = JSON.parse( localStorage.getItem('clubs') );
+      this.router.navigateByUrl('/login');
     }
-
-    if (!localStorage.getItem('favoritos')) {
-      localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
-      this.favs = this.favoritos;
-      
-    } else {
-      this.favs = JSON.parse( localStorage.getItem('favoritos') );
-    }
-
-    /*
-    const self  = this;
-    setTimeout(function() {
-      self.eventos.push( {
-        'club' : self.imagenes[0],
-        'fecha' : self.fechas[0]
-      });
-    }, 5000);*/
   }
 
 }

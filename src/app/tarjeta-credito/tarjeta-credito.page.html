@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/metodo-pago']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tarjeta de crédito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <form [formGroup]="tarjeta_form" class="list-form" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Número de la tarjeta</ion-label>
+        <ion-input formControlName="numero" type="text" placeholder="0000-0000-0000-0000" clear-input maxlength="16" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Titular de la tarjeta</ion-label>
+        <ion-input formControlName="titular" type="text" placeholder="Nombre del titular" clear-input required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fecha de caducidad</ion-label>
+        <ion-datetime formControlName="caducidad" displayFormat="MM-YYYY" placeholder="MM-YYYY" min="2019" max="2025"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label
+          position="floating">Código de seguridad (CVV) <ion-icon name="information-circle"></ion-icon>
+        </ion-label>
+        <ion-input formControlName="cvv" type="text" placeholder="000" clear-input maxlength="3" required></ion-input>
+      </ion-item>
+
+      <br><br>
+      <ion-button class="submit-btn" color="secondary" expand="block" shape="round" type="submit" [disabled]="!tarjeta_form.valid" [routerLink]="['/compra']">Confirmar</ion-button>
+    </form>
+  </ion-grid>
+</ion-content>

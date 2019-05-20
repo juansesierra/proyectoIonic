@@ -16,11 +16,21 @@ ion-list-header {
 }
 
 ion-grid {
-    margin-bottom: 60px;
+    margin-bottom: 25%;
 }
 
 .contenido {
     padding: 0 10px;
+}
+
+.redes{
+    margin-left: 10%;
+}
+
+.redes-container {
+    width: 80%;
+    transform: translate(10%, 0);
+    display: flex;
 }
 
 .top10 {
@@ -73,7 +83,7 @@ a {
     text-decoration: none;
 }
 
-#btn_apuntar_container{
+#btn_apuntar_comprar_container{
     background-color: white;
     position: fixed;
     bottom: 0%;
@@ -81,7 +91,13 @@ a {
     padding: 12px 0;
 }
 
-#btn_apuntar {
-    width: 90%;
-    margin: 0 auto;
-}
+//#btn_apuntar {
+//    width: 90%;
+//    margin: 0 auto;
+//}
+
+
+//#btn_comprar {
+//    width: 90%;
+//    margin: 0 auto;
+//}

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Compra realizada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      ¡Genial! Compra realizada con éxito.
+      <img [src]= "'../../assets/image/disfruta.png'"/>
+    </ion-row>
+    <ion-row>
+      Recibirás un mail de confirmación y, al cabo de unos instantes, te llegará un segundo mail con toda la información junto con las entradas.
+    </ion-row>
+
+      <ion-button class="inicio-btn" color="secondary" expand="block" type="submit" [routerLink]="['/tabs/inicio']">Volver al inicio</ion-button>
+      
+  </ion-grid>
+</ion-content>

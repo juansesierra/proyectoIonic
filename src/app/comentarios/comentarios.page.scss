@@ -2,6 +2,10 @@ ion-label {
     white-space: initial !important; 
 }
 
+input {
+    border:0;
+}
+
 #nuevo_comentario {
     margin-top: 40px;
 }
@@ -11,6 +15,7 @@ ion-label {
     left: 45%;
     position: relative;
     margin-top: 15px;
+    margin-bottom: 10%;
 }
 
 :host{

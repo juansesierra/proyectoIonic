@@ -17,6 +17,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'clubs',
+        children: [
+          {
+            path: '',
+            loadChildren: '../clubs/clubs.module#ClubsPageModule'
+          }
+        ]
+      },
+      {
         path: 'favoritos',
         children: [
           {

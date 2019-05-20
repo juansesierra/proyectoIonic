@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginPage implements OnInit {
 
   loginForm : FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.createLoginForm();
    }
 
@@ -23,6 +24,7 @@ export class LoginPage implements OnInit {
 
     if((login['email'] == datos['email']) && (login['password'] == datos['password'])){
       console.log('OK');
+      this.router.navigateByUrl('');
     }
   }
 
