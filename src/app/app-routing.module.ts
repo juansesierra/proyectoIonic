@@ -14,12 +14,15 @@ const routes: Routes = [
   { path: 'detalles-club', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
   { path: 'detalles-club/:idClub', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
   { path: 'entradas', loadChildren: './entradas/entradas.module#EntradasPageModule' },
   { path: 'metodo-pago', loadChildren: './metodo-pago/metodo-pago.module#MetodoPagoPageModule' },
   { path: 'tarjeta-credito', loadChildren: './tarjeta-credito/tarjeta-credito.module#TarjetaCreditoPageModule' },
   { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' },
   { path: 'clubs', loadChildren: './clubs/clubs.module#ClubsPageModule' }
-  
+
 ];
 @NgModule({
   imports: [

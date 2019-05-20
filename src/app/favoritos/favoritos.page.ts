@@ -9,6 +9,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class FavoritosPage implements OnInit {
 
   favoritos:string [] = []
+
   constructor(private router: Router) { 
   }
 
@@ -23,6 +24,9 @@ export class FavoritosPage implements OnInit {
   }
 
   ngOnInit() {
+    const favs = JSON.parse(localStorage.getItem('favoritos'));
+    this.favoritos = favs;
+    console.log(this.favoritos);
   }
 
   ionViewWillEnter() {

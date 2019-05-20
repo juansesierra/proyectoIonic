@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editar-perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="editForm" class="list-form" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-icon name="person" item-start></ion-icon>
+          <ion-label stacked> Nombre:</ion-label>
+          <ion-input formControlName="name" type="text" value="{{usuario.name}}" placeholder="{{usuario.name}}"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="editForm.get('name').errors && editForm.get('name').dirty">
+          <p class="error">El nombre es requerido</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="person" item-start></ion-icon>
+            <ion-label stacked> Apellidos:</ion-label>
+            <ion-input formControlName="lastName" type="text" value="{{usuario.lastName}}" placeholder="{{usuario.lastName}}"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="editForm.get('lastName').errors && editForm.get('lastName').dirty">
+            <p class="error">Los apellidos son requeridos</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="mail" item-start></ion-icon>
+          <ion-label stacked> Correo electrónico:</ion-label>
+          <ion-input formControlName="email" type="email" value="{{usuario.email}}"  placeholder="{{usuario.email}}"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="editForm.get('email').errors && editForm.get('email').dirty">
+            <p *ngIf="editForm.get('email').hasError('required')" class="error">
+              El email es requerido
+            </p>
+            <p *ngIf="editForm.get('email').hasError('email')" class="error">
+              Introduce un correo válido
+            </p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+          <ion-label stacked> Fecha de nacimiento:</ion-label>
+          <ion-datetime formControlName="dateBirth" displayFormat="DD-MM-YYYY" value="{{usuario.dateBirth}}" placeholder="DD-MM-YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item *ngIf="editForm.get('dateBirth').errors && editForm.get('dateBirth').dirty">
+            <p class="error">Selecciona fecha de nacimiento</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="editForm.get('password').errors && editForm.get('password').dirty">
+            <p *ngIf="editForm.get('password').hasError('required')" class="error">
+              La contraseña es requerida
+            </p>
+            <p *ngIf="editForm.get('password').hasError('minlength')" class="error">
+              Minimo 8 carácteres
+            </p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label stacked>Confirmar contraseña:</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar contraseña"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Vibilidad</ion-label>
+            <ion-select formControlName="visibilidad" value="{{usuario.vibilidad}}" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="Ver todos">Ver todos</ion-select-option>
+                <ion-select-option value="Amigos de amigos">Amigos de amigos</ion-select-option>
+                <ion-select-option value="Solo amigos"> Solo amigos</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        <ion-item *ngIf="editForm.hasError('mismatchedPasswords') ">
+            <p class="error">Contraseñas distintas</p>
+        </ion-item>
+      </ion-list>
+      <br><br>
+      <ion-row id="btn_apuntar_container">
+        <ion-button (click)="onSubmit()"  id="btn_apuntar" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">Guardar</ion-button>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

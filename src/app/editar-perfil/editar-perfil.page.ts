@@ -1,27 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
-import { Router } from '@angular/router'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  selector: 'app-editar-perfil',
+  templateUrl: './editar-perfil.page.html',
+  styleUrls: ['./editar-perfil.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class EditarPerfilPage implements OnInit {
 
-  registerForm : FormGroup;
+  editForm : FormGroup;
+  usuario: any;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.registerForm = this.createRegisterForm();
+    this.editForm = this.createeditForm();
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.usuario = usuario;
    }
 
   ngOnInit() {
   }
 
   public onSubmit(){
-    var registro = this.registerForm.value;
-    localStorage.setItem('usuario',  JSON.stringify(registro));
-    this.router.navigateByUrl('/login');
+    var editar = this.editForm.value;
+    
+    if(editar.name == "")
+    {
+      editar.name = this.usuario.name
+    }
+    if(editar.lastName == "")
+    {
+      editar.lastName = this.usuario.lastName
+    }
+    if(editar.email == "")
+    {
+      editar.email = this.usuario.email
+    }
+    if(editar.dateBirth == "")
+    {
+      editar.dateBirth = this.usuario.dateBirth
+    }
+    if(editar.visibilidad == "")
+    {
+      editar.visibilidad = this.usuario.visibilidad
+    }
+    
+    localStorage.setItem('usuario',  JSON.stringify(editar));
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(usuario)
+    this.router.navigateByUrl('/perfil');
   }
 
   private matchingPassword(passwordKey: string, confirmPasswordKey: string){
@@ -37,7 +64,7 @@ export class RegisterPage implements OnInit {
     }
   }
 
-  private createRegisterForm(){
+  private createeditForm(){
     return this.fb.group({
       name: new FormControl ('', Validators.required),
       lastName: new FormControl ('', Validators.required),
@@ -48,5 +75,4 @@ export class RegisterPage implements OnInit {
       visibilidad: new FormControl ()
       }, {validator: this.matchingPassword('password', 'passwordConfirmation')});
   }
-
 }
