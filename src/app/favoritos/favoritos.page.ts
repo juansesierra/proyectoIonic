@@ -10,9 +10,6 @@ export class FavoritosPage implements OnInit {
 
   favoritos:string [] = []
   constructor(private router: Router) { 
-    const favs = JSON.parse(localStorage.getItem('favoritos'));
-    this.favoritos = favs;
-    console.log(this.favoritos);
   }
 
   goToClub(club) {
@@ -22,13 +19,16 @@ export class FavoritosPage implements OnInit {
       }
     };
 
-    console.log(club);
      this.router.navigate(['detalles-club'], navigationExtras);
   }
 
-  
-
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    const favs = JSON.parse(localStorage.getItem('favoritos'));
+    this.favoritos = favs;
+    console.log(this.favoritos);
   }
 
 }

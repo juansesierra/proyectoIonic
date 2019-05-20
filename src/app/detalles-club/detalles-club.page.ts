@@ -34,12 +34,21 @@ export class DetallesClubPage implements OnInit {
   anyadir(){
     const favoritos = JSON.parse(localStorage.getItem('favoritos'));
     this.favs = favoritos;
-    console.log(this.favs)
-    this.favs.push(this.events.club);
-    console.log(this.favs)
-    localStorage.setItem('favoritos',  JSON.stringify(this.favs));
+    var index = favoritos.indexOf(this.events.club);
 
+    // lo quitamos
+    if (index!=-1) {
+      this.favs.splice(index,1);
+    }
+    // lo añadimos
+    else {
+      this.favs.push(this.events.club);
+    }
+    
+    localStorage.setItem('favoritos',  JSON.stringify(this.favs));
   }
+
+  
 
   ngOnInit() {
   }
