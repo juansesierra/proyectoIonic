@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
 
     if((login['email'] == datos['email']) && (login['password'] == datos['password'])){
       console.log('OK');
-      this.router.navigateByUrl('/inicio');
+      this.router.navigateByUrl('');
     }
   }
 
