@@ -12,6 +12,7 @@ export class DetallesClubPage implements OnInit {
   info: any;
   events: any;
   favs: any;
+  like = false;
 
   constructor(public route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
@@ -38,10 +39,12 @@ export class DetallesClubPage implements OnInit {
 
     // lo quitamos
     if (index!=-1) {
+      this.like=false;
       this.favs.splice(index,1);
     }
     // lo añadimos
     else {
+      this.like=true;
       this.favs.push(this.events.club);
     }
     
@@ -51,6 +54,13 @@ export class DetallesClubPage implements OnInit {
   
 
   ngOnInit() {
+    const favoritos = JSON.parse(localStorage.getItem('favoritos'));
+    var index = favoritos.indexOf(this.events.club);
+
+    // ponemos corazon rojo
+    if (index!=-1) {
+      this.like=true;
+    }
   }
 
 }
