@@ -63,6 +63,24 @@
           </ion-label>
         </ion-row>
 
+        <ion-row class="contenido top10">
+            <ion-label class="titulo">
+                <h2>Compartir</h2>
+            </ion-label>
+            <div class="redes-container">
+
+              <ion-avatar slot="start" class="redes" (click)="presentAlert()">
+                  <img [src]= "'../../assets/image/facebook.png'"/>
+              </ion-avatar>
+              <ion-avatar slot="start" class="redes" (click)="presentAlert()"> 
+                  <img [src]= "'../../assets/image/instagram.png'"/>
+              </ion-avatar>
+              <ion-avatar slot="start" class="redes" (click)="presentAlert()">
+                  <img [src]= "'../../assets/image/twitter.png'"/>
+              </ion-avatar>
+            </div>
+          </ion-row>
+
         <ion-row id="btn_apuntar_comprar_container">
           <ion-col col-6>
             <ion-button item-start href="/comentarios" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated" expand="block"> <!--id="btn_apuntar" -->
