@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Clubs</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let club of clubs" (click)="goToClub(club.club)">
+        <ion-avatar slot="start">
+            <img [src]= "'../../assets/image/' + club.foto +'.jpeg'"/>
+        </ion-avatar>
+        <div>
+          <ion-label class="info">
+            {{club.club}}
+          </ion-label>
+          <ion-label *ngFor="let genero of club.generosMusicales">
+            <h3 class="genero">{{genero.tipo}}</h3>
+          </ion-label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

@@ -17,7 +17,9 @@ const routes: Routes = [
   { path: 'entradas', loadChildren: './entradas/entradas.module#EntradasPageModule' },
   { path: 'metodo-pago', loadChildren: './metodo-pago/metodo-pago.module#MetodoPagoPageModule' },
   { path: 'tarjeta-credito', loadChildren: './tarjeta-credito/tarjeta-credito.module#TarjetaCreditoPageModule' },
-  { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' }
+  { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' },
+  { path: 'clubs', loadChildren: './clubs/clubs.module#ClubsPageModule' }
+  
 ];
 @NgModule({
   imports: [

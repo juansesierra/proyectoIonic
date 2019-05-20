@@ -143,9 +143,6 @@ export class InicioPage implements OnInit {
         },
         {
           tipo:'Metal'
-        },
-        {
-          tipo:'Ska'
         }
       ]
     },
@@ -165,7 +162,7 @@ export class InicioPage implements OnInit {
       ]
     },
     {
-      foto: 'Havanna Castaños',
+      foto: 'Havana Castaños',
       club: 'Havanna Castaños',
       localizacion: 'Alicante',
       likes: '30k',

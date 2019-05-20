@@ -1,0 +1,15 @@
+ion-avatar {
+    width: 60%;
+    height: 120px;
+    --border-radius: 0 !important;
+}
+
+.info {
+    position: relative;
+    transform: translate(0, -10px);
+    font-weight: bold;
+}
+
+.genero {
+    color:red;
+}
