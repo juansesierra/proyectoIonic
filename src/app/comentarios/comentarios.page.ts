@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-comentarios',
@@ -11,7 +12,11 @@ export class ComentariosPage implements OnInit {
   
   comentarios;
 
-  constructor(public route: ActivatedRoute, private router: Router) { }
+  comentario = new FormControl('', Validators.required);
+
+
+  constructor(public route: ActivatedRoute, private router: Router, private fb: FormBuilder) { 
+  }
 
   ngOnInit() {
      // Comprobamos si viene por url o desde el boton atras
@@ -33,7 +38,21 @@ export class ComentariosPage implements OnInit {
 
   addComentario() {
     const eventos = JSON.parse(localStorage.getItem('eventos'));
-    this.comentarios.push('kdkdkdkd');
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log("entroo")
+    console.log(this.comentario.value)
+
+    var nuevoComentario = {
+      usuario: usuario.name,
+      comentario: this.comentario.value
+    }
+    
+    // Añadimos el comentario
+    this.comentarios.push(nuevoComentario);
+
+    eventos.find((element) => element['club'] === this.evento).comentarios = this.comentarios;
+
+    localStorage.setItem('eventos', JSON.stringify(eventos));
 
   }
 

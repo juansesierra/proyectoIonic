@@ -23,11 +23,11 @@
      </ion-item>
    </ion-list>
 
-   <ion-item id="nuevo_comentario">
-     <ion-input placeholder="Deja un comentario.."></ion-input>
-   </ion-item>
-
-   <ion-button id="btn_comentar" (click)="addComentario()" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
-      Enviar comentario
-    </ion-button>
+    <ion-item id="nuevo_comentario">
+      <ion-input [formControl]="comentario" placeholder="Deja un comentario.."></ion-input>
+    </ion-item>
+    
+    <ion-button id="btn_comentar" (click)="addComentario()" expand="block" color="secondary" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
+        Enviar comentario
+      </ion-button>
 </ion-content>
