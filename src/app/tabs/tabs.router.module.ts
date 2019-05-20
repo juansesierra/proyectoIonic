@@ -44,11 +44,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'mis-eventos',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../mis-eventos/mis-eventos.module#MisEventosPageModule'
           }
         ]
       },

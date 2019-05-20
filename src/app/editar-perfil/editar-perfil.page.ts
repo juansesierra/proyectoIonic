@@ -48,7 +48,7 @@ export class EditarPerfilPage implements OnInit {
     localStorage.setItem('usuario',  JSON.stringify(editar));
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     console.log(usuario)
-    this.router.navigateByUrl('/perfil');
+    this.router.navigateByUrl('/tabs/perfil');
   }
 
   private matchingPassword(passwordKey: string, confirmPasswordKey: string){

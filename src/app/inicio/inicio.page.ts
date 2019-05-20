@@ -13,6 +13,7 @@ export class InicioPage implements OnInit {
   eventos = [];
   clubs = [];
   favs = [];
+  misEventos = [];
 
   datosIniciales = [
     {
@@ -218,6 +219,13 @@ export class InicioPage implements OnInit {
       } else {
         this.favs = JSON.parse( localStorage.getItem('favoritos') );
       }
+      
+      if (!localStorage.getItem('misEventos')) {
+        localStorage.setItem('misEventos',  JSON.stringify(this.misEventos));
+        
+      } else {
+        this.misEventos = JSON.parse( localStorage.getItem('misEventos'));
+        }
 
       if (!localStorage.getItem('eventos')) {
         localStorage.setItem('eventos',  JSON.stringify(this.datosIniciales));
@@ -239,8 +247,6 @@ export class InicioPage implements OnInit {
       } else {
         this.clubs = JSON.parse( localStorage.getItem('clubs') );
       }
-
-      
 
     } else {
       this.router.navigateByUrl('/login');

@@ -9,7 +9,8 @@ import { AlertController } from '@ionic/angular';
 })
 export class DetalleEventoPage implements OnInit {
   evento: string;
-
+  eventos: any
+  like = false;
   datos;
 
   constructor(public route: ActivatedRoute, private router: Router, private alertController: AlertController) {
@@ -55,6 +56,28 @@ export class DetalleEventoPage implements OnInit {
     };
 
      this.router.navigate(['detalles-club'], navigationExtras);
+  }
+
+  apuntarse(evento)
+  {
+    const misEvents = JSON.parse( localStorage.getItem('misEventos'));
+    this.eventos = misEvents;
+    var index = misEvents.indexOf(this.datos);
+
+    // lo quitamos
+    if (index!=-1) {
+      this.like=false;
+      this.eventos.splice(index,1);
+    }
+    // lo añadimos
+    else {
+      this.like=true;
+      this.eventos.push(this.datos);
+    }
+
+    localStorage.setItem('misEventos',  JSON.stringify(this.eventos));
+
+    this.router.navigateByUrl('/mis-eventos');
   }
 
   ngOnInit() {
