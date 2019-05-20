@@ -7,10 +7,14 @@ const routes: Routes = [
   { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
   { path: 'detalle-evento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
   { path: 'detalle-evento/:idEvento', loadChildren: './detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
-  { path: 'comentarios/:idEvento', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' }
-
-
-
+  { path: 'comentarios/:idEvento', loadChildren: './comentarios/comentarios.module#ComentariosPageModule' },
+  { path: 'detalles-club', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
+  { path: 'detalles-club/:idClub', loadChildren: './detalles-club/detalles-club.module#DetallesClubPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'entradas', loadChildren: './entradas/entradas.module#EntradasPageModule' },
+  { path: 'metodo-pago', loadChildren: './metodo-pago/metodo-pago.module#MetodoPagoPageModule' },
+  { path: 'tarjeta-credito', loadChildren: './tarjeta-credito/tarjeta-credito.module#TarjetaCreditoPageModule' },
+  { path: 'compra', loadChildren: './compra/compra.module#CompraPageModule' }
 ];
 @NgModule({
   imports: [
@@ -19,3 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+

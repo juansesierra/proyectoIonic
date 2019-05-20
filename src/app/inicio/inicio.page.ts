@@ -1,3 +1,4 @@
+import { FavoritosPageModule } from './../favoritos/favoritos.module';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
@@ -10,6 +11,8 @@ import { Router, NavigationExtras } from '@angular/router';
 export class InicioPage implements OnInit {
 
   eventos = [];
+  clubs = [];
+  favs = [];
 
   datosIniciales = [
     {
@@ -88,6 +91,96 @@ export class InicioPage implements OnInit {
       comentarios: []
     }
   ];
+  datosInicialesClubs = [
+    {
+      foto: 'Marmarela',
+      club: 'Marmarela',
+      localizacion: 'Alicante',
+      likes: '50k',
+      descripcion: 'Marmarela es un espacio multidisciplinar donde Restauración, Cocktails, Copas y una cuidada programación musical son sus grandes atractivos. Tenemos conciertos y actuaciones de djs en un marco incomparable, así como acciones escenográficas de todo tipo. Marmarela ofrece un contenido diferente para cada día y para todos los gustos, contando siempre con artistas de primer nivel.',
+      generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Electronica'
+        },
+        {
+          tipo:'Dance'
+        }
+      ]
+    },
+    {
+      foto: 'Magma Club',
+      club: 'Magma Club',
+      localizacion: 'Alicante',
+      likes: '40k',
+      descripcion: 'Contando con una programación inigualable y un ambiente excepcional, somos el lugar donde te haremos disfrutar como nunca. En un entorno privilegiado, podrás disfrutar de la mejor música sin que tengas ningún tipo de carencia. Servicio de cachimbas, restauración… todo al alcance de tu mano.',
+      generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Trap'
+        },
+        {
+          tipo:'Dance'
+        }
+      ]
+    },
+    {
+      foto: 'Marearock Bar',
+      club: 'Marearock Bar',
+      localizacion: 'Alicante',
+      likes: '30k',
+      descripcion: 'Todo el Rock, Punk, Metal,.. Nacional e Internacional!! Mucha fiesta, buenos Djs y buenos precios!!!',
+      generosMusicales : [
+        {
+          tipo:'Rock'
+        },
+        {
+          tipo:'Punk'
+        },
+        {
+          tipo:'Metal'
+        },
+        {
+          tipo:'Ska'
+        }
+      ]
+    },
+    {
+      foto: 'Club Concerto',
+      club: 'Club Concerto',
+      localizacion: 'Alicante',
+      likes: '30k',
+      descripcion: 'Te gustaría sentirte cada noche en las mejores discotecas de Nueva York, Miami o París? ¿Te atraería un lugar donde cada noche es única y donde puedes disfrutar espectáculos únicos? Grupo Concerto-Havana lo pone a tu disposición. En Club_Concerto ponemos a tu disposición todo eso y más. Una enrome pista, un espacio VIP espectacular, un Priveé solo para los elegidos, un funcional escenario para performances con videowall de última generación, la mejor iluminación con efectos nunca vistos.',
+       generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Reggeaton'
+        },
+      ]
+    },
+    {
+      foto: 'Havanna Castaños',
+      club: 'Havanna Castaños',
+      localizacion: 'Alicante',
+      likes: '30k',
+      descripcion: 'Havana Castaños es un lugar único, por su gran barra central alrededor de la cual ocurre todo y la posibilidad de crear diferentes ambientes dentro de un mismo espacio. Sin olvidar que lo que lo hace realmente inolvidable es la gente, el ambiente y la felicidad que lo impregna todo cada fin de semana, con un lleno total.',
+      generosMusicales : [
+        {
+          tipo:'House'
+        },
+        {
+          tipo:'Reggeaton'
+        },
+      ]
+    }
+  ];
+  favoritos = ['Marmarela', 'Magma Club', 'Marearock Bar']
 
   constructor(private router: Router) {
 
@@ -104,6 +197,17 @@ export class InicioPage implements OnInit {
      this.router.navigate(['detalle-evento'], navigationExtras);
   }
 
+  goToClub(club) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        club : club
+      }
+    };
+
+    console.log(club);
+     this.router.navigate(['detalles-club'], navigationExtras);
+  }
+
   ngOnInit() {
 
     if (!localStorage.getItem('eventos')) {
@@ -112,6 +216,22 @@ export class InicioPage implements OnInit {
       
     } else {
       this.eventos = JSON.parse( localStorage.getItem('eventos') );
+    }
+
+    if (!localStorage.getItem('clubs')) {
+      localStorage.setItem('clubs',  JSON.stringify(this.datosInicialesClubs));
+      this.clubs = this.datosInicialesClubs;
+      
+    } else {
+      this.clubs = JSON.parse( localStorage.getItem('clubs') );
+    }
+
+    if (!localStorage.getItem('favoritos')) {
+      localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
+      this.favs = this.favoritos;
+      
+    } else {
+      this.favs = JSON.parse( localStorage.getItem('favoritos') );
     }
 
     /*

@@ -16,7 +16,7 @@
               <img [src]= "'../../assets/image/' + evento +'.jpeg'"/>
           </ion-avatar>
           <ion-label>
-            <h2> {{evento}}</h2>
+            <h2 (click)="goToClub(evento)"> {{evento}}</h2>
           </ion-label>
         </ion-item>
       </ion-list>
