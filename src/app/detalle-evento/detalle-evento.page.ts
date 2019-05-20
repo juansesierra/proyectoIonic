@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -45,6 +45,16 @@ export class DetalleEventoPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  goToClub(club) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        club : club
+      }
+    };
+
+     this.router.navigate(['detalles-club'], navigationExtras);
   }
 
   ngOnInit() {

@@ -13,10 +13,16 @@
       <ion-img [src]= "'../../assets/image/' + info.foto +'.jpeg'"></ion-img>
     </ion-row>
     <div>
-      <span>
-        <ion-icon (click)="anyadir(info.club)"  style="color:red;" name="md-heart"></ion-icon>
+      <span *ngIf="like" >
+        <ion-icon (click)="anyadir(info.club)" style="color:red;" name="md-heart"></ion-icon>
         {{info.likes}}
       </span>
+
+      <span *ngIf="!like" >
+        <ion-icon (click)="anyadir(info.club)" name="md-heart"></ion-icon>
+        {{info.likes}}
+      </span>
+
       </div>
     <ion-row class="contenido">
       <ion-item *ngFor="let genero of info.generosMusicales">

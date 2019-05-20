@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'app-favoritos',
-  templateUrl: './favoritos.page.html',
-  styleUrls: ['./favoritos.page.scss'],
+  selector: 'app-clubs',
+  templateUrl: './clubs.page.html',
+  styleUrls: ['./clubs.page.scss'],
 })
-export class FavoritosPage implements OnInit {
+export class ClubsPage implements OnInit {
 
-  favoritos:string [] = []
+  clubs = []
   constructor(private router: Router) { 
+  }
+
+  ngOnInit() {
   }
 
   goToClub(club) {
@@ -22,13 +25,9 @@ export class FavoritosPage implements OnInit {
      this.router.navigate(['detalles-club'], navigationExtras);
   }
 
-  ngOnInit() {
-  }
-
   ionViewWillEnter() {
-    const favs = JSON.parse(localStorage.getItem('favoritos'));
-    this.favoritos = favs;
-    console.log(this.favoritos);
-  }
+    this.clubs = JSON.parse(localStorage.getItem('clubs'));
 
+    console.log(this.clubs);
+  }
 }

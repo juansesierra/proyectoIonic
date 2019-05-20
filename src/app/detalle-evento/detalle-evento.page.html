@@ -14,7 +14,7 @@
       <ion-row class="contenido">
         <h1>{{datos.evento}}. {{datos.fecha}}</h1>
       </ion-row>
-      <ion-row class="contenido">
+      <ion-row class="contenido" (click)="goToClub(datos.club)">
         <h4 id="club">{{datos.club}}</h4>
       </ion-row>
       <ion-row class="contenido">

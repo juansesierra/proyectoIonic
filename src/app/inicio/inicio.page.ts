@@ -143,9 +143,6 @@ export class InicioPage implements OnInit {
         },
         {
           tipo:'Metal'
-        },
-        {
-          tipo:'Ska'
         }
       ]
     },
@@ -165,7 +162,7 @@ export class InicioPage implements OnInit {
       ]
     },
     {
-      foto: 'Havanna Castaños',
+      foto: 'Havana Castaños',
       club: 'Havanna Castaños',
       localizacion: 'Alicante',
       likes: '30k',
@@ -209,14 +206,30 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     if (localStorage.getItem('usuario')) {
+
+      if (!localStorage.getItem('favoritos')) {
+        localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
+        this.favs = this.favoritos;
+        
+      } else {
+        this.favs = JSON.parse( localStorage.getItem('favoritos') );
+      }
 
       if (!localStorage.getItem('eventos')) {
         localStorage.setItem('eventos',  JSON.stringify(this.datosIniciales));
         this.eventos = this.datosIniciales;
         
       } else {
-        this.eventos = JSON.parse( localStorage.getItem('eventos') );
+        this.eventos = [];
+        const eventosAux = JSON.parse( localStorage.getItem('eventos') );
+
+        for (let club of this.favs) {
+          this.eventos.push(eventosAux.find((element) => element['club'] === club));
+        }
       }
 
       if (!localStorage.getItem('clubs')) {
@@ -227,18 +240,11 @@ export class InicioPage implements OnInit {
         this.clubs = JSON.parse( localStorage.getItem('clubs') );
       }
 
-      if (!localStorage.getItem('favoritos')) {
-        localStorage.setItem('favoritos',  JSON.stringify(this.favoritos));
-        this.favs = this.favoritos;
-        
-      } else {
-        this.favs = JSON.parse( localStorage.getItem('favoritos') );
-      }
+      
 
     } else {
       this.router.navigateByUrl('/login');
     }
-
   }
 
 }
