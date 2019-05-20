@@ -37,23 +37,27 @@ export class ComentariosPage implements OnInit {
   }
 
   addComentario() {
-    const eventos = JSON.parse(localStorage.getItem('eventos'));
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
-    console.log("entroo")
-    console.log(this.comentario.value)
+    if (this.comentario.value != '') {
 
-    var nuevoComentario = {
-      usuario: usuario.name,
-      comentario: this.comentario.value
+      const eventos = JSON.parse(localStorage.getItem('eventos'));
+      var usuario = JSON.parse(localStorage.getItem('usuario'));
+      console.log(this.comentario.value)
+
+      var nuevoComentario = {
+        usuario: usuario.name,
+        comentario: this.comentario.value
+      }
+
+      this.comentario.setValue('');
+      
+      // Añadimos el comentario
+      this.comentarios.push(nuevoComentario);
+
+      eventos.find((element) => element['club'] === this.evento).comentarios = this.comentarios;
+
+      localStorage.setItem('eventos', JSON.stringify(eventos));
+
     }
-    
-    // Añadimos el comentario
-    this.comentarios.push(nuevoComentario);
-
-    eventos.find((element) => element['club'] === this.evento).comentarios = this.comentarios;
-
-    localStorage.setItem('eventos', JSON.stringify(eventos));
-
   }
 
 }
