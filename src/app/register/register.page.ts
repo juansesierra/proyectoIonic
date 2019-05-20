@@ -44,7 +44,8 @@ export class RegisterPage implements OnInit {
       email: new FormControl ('', Validators.compose([Validators.required, Validators.email])),
       dateBirth: new FormControl ('', Validators.required),
       password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)]))
+      passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      visibilidad: new FormControl ()
       }, {validator: this.matchingPassword('password', 'passwordConfirmation')});
   }
 

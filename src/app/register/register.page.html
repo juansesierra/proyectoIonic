@@ -77,6 +77,14 @@
         <ion-item *ngIf="registerForm.hasError('mismatchedPasswords')">
             <p class="error">Contraseñas distintas</p>
         </ion-item>
+        <ion-item>
+            <ion-label>Vibilidad</ion-label>
+            <ion-select formControlName="visibilidad" value="Ver todos" okText="Okay" cancelText="Dismiss">
+                <ion-select-option>Ver todos</ion-select-option>
+                <ion-select-option>Amigos de amigos</ion-select-option>
+                <ion-select-option> Solo amigos</ion-select-option>
+            </ion-select>
+          </ion-item>
       </ion-list>
       <br><br>
       <div text-center>

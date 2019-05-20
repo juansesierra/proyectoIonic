@@ -23,6 +23,28 @@ export class EditarPerfilPage implements OnInit {
 
   public onSubmit(){
     var editar = this.editForm.value;
+    
+    if(editar.name == "")
+    {
+      editar.name = this.usuario.name
+    }
+    if(editar.lastName == "")
+    {
+      editar.lastName = this.usuario.lastName
+    }
+    if(editar.email == "")
+    {
+      editar.email = this.usuario.email
+    }
+    if(editar.dateBirth == "")
+    {
+      editar.dateBirth = this.usuario.dateBirth
+    }
+    if(editar.visibilidad == "")
+    {
+      editar.visibilidad = this.usuario.visibilidad
+    }
+    
     localStorage.setItem('usuario',  JSON.stringify(editar));
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     console.log(usuario)
@@ -49,7 +71,8 @@ export class EditarPerfilPage implements OnInit {
       email: new FormControl ('', Validators.compose([Validators.required, Validators.email])),
       dateBirth: new FormControl ('', Validators.required),
       password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)]))
+      passwordConfirmation: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      visibilidad: new FormControl ()
       }, {validator: this.matchingPassword('password', 'passwordConfirmation')});
   }
 }
