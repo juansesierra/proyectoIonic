@@ -164,7 +164,7 @@ export class InicioPage implements OnInit {
     },
     {
       foto: 'Havana Castaños',
-      club: 'Havanna Castaños',
+      club: 'Havana Castaños',
       localizacion: 'Alicante',
       likes: '30k',
       descripcion: 'Havana Castaños es un lugar único, por su gran barra central alrededor de la cual ocurre todo y la posibilidad de crear diferentes ambientes dentro de un mismo espacio. Sin olvidar que lo que lo hace realmente inolvidable es la gente, el ambiente y la felicidad que lo impregna todo cada fin de semana, con un lleno total.',

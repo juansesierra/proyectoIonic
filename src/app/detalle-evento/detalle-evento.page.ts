@@ -62,7 +62,9 @@ export class DetalleEventoPage implements OnInit {
   {
     const misEvents = JSON.parse( localStorage.getItem('misEventos'));
     this.eventos = misEvents;
-    var index = misEvents.indexOf(this.datos);
+    var index = this.deepIndexOf(misEvents, this.datos);
+
+    console.log(index);
 
     // lo quitamos
     if (index!=-1) {
@@ -74,10 +76,15 @@ export class DetalleEventoPage implements OnInit {
       this.like=true;
       this.eventos.push(this.datos);
     }
-
     localStorage.setItem('misEventos',  JSON.stringify(this.eventos));
 
-    this.router.navigateByUrl('/mis-eventos');
+    this.router.navigateByUrl('tabs/mis-eventos');
+  }
+
+  deepIndexOf(arr, obj) {
+    return arr.findIndex(function (cur) {
+        return obj['evento'] === cur['evento'];
+    });
   }
 
   ngOnInit() {
