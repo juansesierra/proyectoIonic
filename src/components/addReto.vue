@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="addReto_container"> 
         <h1> Nuevo Reto </h1>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Nombre:" label-for="input-1" >
@@ -29,7 +29,6 @@
                 required
                 placeholder="Selecciona el fichero de entrada"
             ></b-form-file>
-            <div class="mt-3">Selected file: {{ form.f_entrada ? form.f_entrada.name : '' }}</div>
         </b-form-group>
 
         <b-form-group id="input-group-3" label="Fichero de salida:" label-for="input-salida">
@@ -39,15 +38,11 @@
                 required
                 placeholder="Selecciona el fichero de salida"
             ></b-form-file>
-            <div class="mt-3">Selected file: {{ form.f_salida ? form.f_salida.name : '' }}</div>
         </b-form-group>
 
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
+        <b-button type="submit" variant="primary">Añadir</b-button>
+        <b-button type="reset" variant="danger">Reiniciar</b-button>
         </b-form>
-        <b-card class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ form }}</pre>
-        </b-card>
     </div>
     
 </template>

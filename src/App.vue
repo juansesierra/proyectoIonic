@@ -72,4 +72,10 @@ html, body{
   text-align: center;
   color: #2c3e50;
 }
+
+/*  Añadir retos  */
+
+#addReto_container {
+  padding: 5% 20%;
+}
 </style>
