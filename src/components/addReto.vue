@@ -51,6 +51,7 @@
 <script>
     import {Servicio_API} from './../API.js';
 
+
     var servicio_API = new Servicio_API();
 
     export default {
@@ -79,7 +80,10 @@
             servicio_API.addReto(formData).then(respuesta => {
                 console.log(respuesta);
             
-           
+                this.$swal({
+                    type: 'success',
+                    title: respuesta.data,
+                })
             }); 
         },
         onReset(evt) {
